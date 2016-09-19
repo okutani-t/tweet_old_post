@@ -1,5 +1,6 @@
 # coding: utf-8
-require 'twitter'
+require 'bundler'
+Bundler.require
 require 'yaml'
 require './scraping'
 
