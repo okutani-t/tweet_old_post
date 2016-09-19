@@ -14,7 +14,7 @@ keys = YAML.load_file('keys.yml')
 
 # スクレイピング
 old_post = Scraping.fetch_old_post(URL)
-p old_post
+
 # Twitter投稿
-# client = Twitter::REST::Client.new(keys)
-# client.update(old_post[:title] + ' ' + old_post[:url])
+client = Twitter::REST::Client.new(keys)
+client.update(old_post[:title] + ' ' + old_post[:url])
