@@ -9,7 +9,6 @@ module Scraping
   def fetch_old_post(url)
     old_posts = []
 
-    # doc = Nokogiri::HTML(open(url).toutf8)
     doc = Nokogiri::HTML(open(url, &:read).toutf8)
     doc.xpath('//li[contains(@class, "post-item")]/a').each do |node|
       old_posts << {title: node.text,url: node.attribute('href').value}
