@@ -4,21 +4,23 @@ Bundler.require
 require 'kconv'
 require 'open-uri'
 
-class Scraping
+module Scraping
 
-  def initialize
-    @old_posts = []
-  end
+  def fetch_old_post(url)
+    old_posts = []
 
-  def fetch_old_posts(url)
     # doc = Nokogiri::HTML(open(url).toutf8)
     doc = Nokogiri::HTML(open(url, &:read).toutf8)
     doc.xpath('//li[contains(@class, "post-item")]/a').each do |node|
-      @old_posts << {title: node.text,url: node.attribute('href').value}
+      old_posts << {title: node.text,url: node.attribute('href').value}
     end
+
     # 重複を取り除く
-    @old_posts.uniq!
+    old_posts.uniq!
+
+    # ランダムにひとつ返す
+    old_posts.sample
   end
 
-  attr_accessor :old_posts
+  module_function :fetch_old_post
 end

@@ -14,9 +14,7 @@ if URL == nil
 end
 
 # スクレイピング
-scraping = Scraping.new
-scraping.fetch_old_posts(URL)
-old_post = scraping.old_posts.sample
+old_post = Scraping.fetch_old_post(URL)
 
 # Twitter投稿
 client = Twitter::REST::Client.new(keys)
