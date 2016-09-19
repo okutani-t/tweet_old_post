@@ -19,19 +19,19 @@ gem 'twitter'
 
 本体をクローン。
 
-```shellscript
+```bash
 $ git clone https://github.com/okutani-t/tweet_old_post.git
 ```
 
 gemをインストール。
 
-```shellscript
+```bash
 $ bundle install
 ```
 
 keys.ymlを生成&編集。
 
-```shellscript
+```bash
 $ cp keys_sample.yml keys.yml
 
 $ vi keys.yml
@@ -45,7 +45,7 @@ access_token_secret: ACCESS_SECRET
 
 自分のサイトのサイトマップを引数にして実行する。
 
-```shellscript
+```bash
 $ ruby tweet_old_post.rb http://example.com/sitemap
 ```
 
